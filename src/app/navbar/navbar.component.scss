@@ -1,4 +1,45 @@
+@mixin raised_button($normal, $raised, $color) {
+    border: 1px solid #1f1b29;
+    cursor: pointer;
+    display: inline-block;
+    padding: 1em;
+    height: 100%;
+    
+    animation-name: normal;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+    
+    &:hover {
+        animation-name: bigger;
+        animation-duration: 500ms;
+        animation-fill-mode: forwards;
+    }
+    
+    @keyframes normal {
+        0% {
+            transform: scale(1.05, 1.05);
+        }
+        100% {
+            transform: scale(1.00, 1.00);
+        }
+    }
+  
+    @keyframes bigger {
+        100% {
+            box-shadow: 0 1px $raised $color;
+            transform: scale(1.05, 1.05);
+        }
+    }
+}
+  
 .navbar {
     height: 120px;
     border-bottom: 1px solid #1f1b29;
+    padding: 0;
+    .nav-item {
+        width: 8vw;
+        min-width: 100px;
+        text-align: center;
+        @include raised_button(2px, 20px, #999);
+    }
 }

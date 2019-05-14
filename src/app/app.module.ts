@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 import { AppComponent } from './app.component';
 //Angular Material Components
@@ -37,22 +39,19 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { NavbarComponent } from './navbar/navbar.component';
 import { IconBarComponent } from './icon-bar/icon-bar.component';
-import { IconComponent } from './icon-bar/icon/icon.component';
-
-
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    IconBarComponent,
-    IconComponent
+    IconBarComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    FontAwesomeModule,
     MatCheckboxModule,
     MatCheckboxModule,
     MatButtonModule,
