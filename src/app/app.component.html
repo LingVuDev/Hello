@@ -1,11 +1,16 @@
-<app-navbar></app-navbar>
+<app-navbar class="mat-elevation-z6"></app-navbar>
 <div id="top" class="intro" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
-  <h1>Hi, I'm Ling!</h1>
-  <p>Front-End Developer</p>
-  <app-icon-bar></app-icon-bar>
+  <mat-card
+    class="short-facts"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    matRipple [matRippleColor]="color"
+    (click)="changeColor()"
+    cdkDrag>
+
+    <h1>Hi, I'm Ling!</h1>
+    <p>Front-End Developer</p>
+    <app-icon-bar></app-icon-bar>
+  </mat-card>
 </div>
-<div id="projects" class="content" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
-    <div class="container">
-        <blockquote cite="Elon Musk">"When something is important enough, you do it even if the odds are not in your favor."</blockquote>
-    </div>
-</div>
+
