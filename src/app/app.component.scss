@@ -1,3 +1,6 @@
+html {
+    scroll-behavior: smooth;
+}
 app-navbar {
     position: fixed;
     top: 0;
@@ -5,10 +8,9 @@ app-navbar {
 }
 
 .intro {
-    min-height: 100vh;
-}
+    height: 100vh;
 
-.content {
-    background-color: aliceblue;
-    height: 100px;
+    .short-facts {
+      padding: 100px;
+    }
 }

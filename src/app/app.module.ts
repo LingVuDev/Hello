@@ -3,11 +3,10 @@ import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
-
+import {DragDropModule} from '@angular/cdk/drag-drop';
 import { AppComponent } from './app.component';
 //Angular Material Components
-import {MatCheckboxModule} from '@angular/material';
+import {MatCheckboxModule, MatRipple, MatRippleModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -82,7 +81,10 @@ import { IconBarComponent } from './icon-bar/icon-bar.component';
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatRippleModule,
+
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
