@@ -1,0 +1,48 @@
+@import 'variables';
+
+.cover {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+
+  &__first-box {
+    width: 50%;
+    height: 100%;
+    background-color: mat-color($primary);
+    position: relative;
+
+    .profile-picture {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      background: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .title {
+      position: absolute;
+      bottom: 32px;
+      left: 32px;
+      display: flex;
+      flex-direction: column;
+      color: white;
+      font-size: 32px;
+
+      .name {
+        font-weight: 700;
+      }
+
+      .description {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__sec-box {
+    width: 50%;
+  }
+}
