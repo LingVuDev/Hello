@@ -1,7 +1,52 @@
-version: 2.1
-orbs:
-  node: circleci/node@3.0.0
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  test-job:
+    docker:
+      - image: circleci/node:12.11.1
+    working_directory: ~/repo
+    steps:
+      - run:
+          name: Install node_modules
+          command: npm install
+      - run:
+          name: Test
+          command: ng test --code-coverage
+
+  deploy-job:
+       docker:
+         - image: circleci/node:12.11.1
+       working_directory: ~/repo
+       steps:
+         - restore_cache:
+             keys:
+              - v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+         - run:
+             name: show directory
+             command: pwd
+         - run:
+             name: Install node_modules
+             command: npm install
+         - run:
+             name: Install node_modules
+             command: ng add angular-cli-ghpages
+         - run:
+             name: Deploy Master to Firebase
+             command: ng deploy --base-href=./
+
 workflows:
-  node-tests:
+  version: 2
+
+  -test:
     jobs:
-      - node/test
+      - test-job
+
+  -deploy:
+    jobs:
+      - deploy-job:
+          filters:
+            branches:
+              only: master
