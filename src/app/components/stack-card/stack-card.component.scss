@@ -1,0 +1,21 @@
+.stack-card {
+  .header {
+    display: flex;
+    align-items: center;
+
+    &__icon {
+      width: auto;
+      font-size: 40px;
+      margin-right: 4px;
+    }
+
+    &__text {
+      margin: 0;
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
