@@ -10,7 +10,7 @@ jobs:
     steps:
       - run:
           name: Starting folder
-          command: ls -la ..
+          command: cd ~/project
       - run:
           name: Install node_modules
           command: npm install
