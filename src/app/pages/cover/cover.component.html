@@ -1,6 +1,6 @@
 <div class="cover">
   <div class="cover__first-box">
-    <div class="profile-picture"></div>
+    <img class="profile-picture" src="https://scontent.ftxl2-1.fna.fbcdn.net/v/t1.0-9/118325311_3364467363618583_6429717951379238542_n.jpg?_nc_cat=111&_nc_sid=09cbfe&_nc_ohc=E3OVBEZYPF0AX_erqq_&_nc_ht=scontent.ftxl2-1.fna&oh=199112aa637569e06b6a99cbfa0cbfff&oe=5F9E6466" alt="">
     <div class="title">
       <span class="name">Ling Vu</span>
       <span class="sub">— Frontend Engineer</span>
@@ -10,7 +10,11 @@
   </div>
   <div class="cover__sec-box">
     <mat-tab-group mat-align-tabs="end">
-      <mat-tab label="About">About</mat-tab>
+      <mat-tab label="About">
+        <div class="tab">
+          <app-about></app-about>
+        </div>
+      </mat-tab>
       <mat-tab label="Projects">Projects</mat-tab>
       <mat-tab label="Contact">Contact</mat-tab>
     </mat-tab-group>
