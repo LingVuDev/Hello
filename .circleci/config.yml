@@ -9,6 +9,9 @@ jobs:
       - image: circleci/node:12.11.1
     steps:
       - run:
+          name: Starting folder
+          command: ls -la
+      - run:
           name: Install node_modules
           command: npm install
       - run:
