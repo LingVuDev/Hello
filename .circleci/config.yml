@@ -2,24 +2,29 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
-version: 2
+version: 2.1
 jobs:
   test-job:
+    working_directory: ~/hello
     docker:
       - image: circleci/node:12.11.1
     steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
-          name: Starting folder
-          command: cd ~/project
-      - run:
-          name: Project folder
-          command: ls -la
+          name: install-dependencies
+          command: yarn install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
       - run:
           name: Install node_modules
           command: npm install
       - run:
           name: Test
-          command: ./node_modules/.bin/ng test --code-coverage
+          command: ./node_modules/.bin/ng test --code-coverage --single-run
 
   deploy-job:
        docker:
