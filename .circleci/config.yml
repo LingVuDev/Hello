@@ -8,8 +8,6 @@ jobs:
     working_directory: ~/hello
     docker:
       - image: circleci/node:12.11.1
-      - environment:
-          NODE_ENV: development
     steps:
       - checkout
       - restore_cache:
