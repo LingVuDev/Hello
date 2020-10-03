@@ -7,14 +7,13 @@ jobs:
   test-job:
     docker:
       - image: circleci/node:12.11.1
-    working_directory: ~/repo
     steps:
       - run:
           name: Install node_modules
           command: npm install
       - run:
           name: Test
-          command: ng test --code-coverage
+          command: ./node_modules/.bin/ng test --code-coverage
 
   deploy-job:
        docker:
@@ -32,10 +31,10 @@ jobs:
              command: npm install
          - run:
              name: Install node_modules
-             command: ng add angular-cli-ghpages
+             command: ./node_modules/.bin/ng add angular-cli-ghpages
          - run:
              name: Deploy Master to Firebase
-             command: ng deploy --base-href=./
+             command: ./node_modules/.bin/ng deploy --base-href=./
 
 workflows:
   version: 2
