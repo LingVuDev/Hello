@@ -12,6 +12,9 @@ jobs:
           name: Starting folder
           command: cd ~/project
       - run:
+          name: Project folder
+          command: ls -la
+      - run:
           name: Install node_modules
           command: npm install
       - run:
