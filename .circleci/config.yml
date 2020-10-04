@@ -34,35 +34,31 @@ jobs:
           command: ./node_modules/.bin/ng test --code-coverage --watch=false
 
   deploy:
-       working_directory: ~/hello
-       docker:
-         - image: circleci/node:12.11.1
-       steps:
-         - checkout
-         - restore_cache:
-             key: dependency-cache-{{ checksum "package-lock.json" }}
-         - run:
-             name: Install dependencies
-             command: npm install
-         - run:
-             name: Install angular-cli-ghpages and configure dependencies
-             command: |
-              ./node_modules/.bin/ng add angular-cli-ghpages
-              git config user.email "vumanhling@icloud"
-              git config user.name "ci-build"
-         - run:
-             name: Deploy Master to Github Pages
-             command: ./node_modules/.bin/ng deploy --base-href=./
+    working_directory: ~/hello
+    docker:
+      - image: circleci/node:12.11.1
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "01:86:12:ac:1b:63:fa:17:15:6a:e8:e8:c4:83:e8:95"
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Install angular-cli-ghpages and configure dependencies
+          command: |
+            ./node_modules/.bin/ng add angular-cli-ghpages
+            git config user.email "vumanhling@icloud"
+            git config user.name "ci-build"
+      - run:
+          name: Deploy Master to Github Pages
+          command: ./node_modules/.bin/ng deploy --base-href=./
 
 workflows:
   version: 2
-
-  test:
-    jobs:
-      - test:
-        filters:
-          branches:
-            ignore: master
 
   test-and-deploy:
     jobs:
