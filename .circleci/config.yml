@@ -50,9 +50,9 @@ jobs:
       - run:
           name: Install angular-cli-ghpages and configure dependencies
           command: |
-          ./node_modules/.bin/ng add angular-cli-ghpages
-          git config user.email "vumanhling@icloud"
-          git config user.name "ci-build"
+            ./node_modules/.bin/ng add angular-cli-ghpages
+            git config user.email "vumanhling@icloud"
+            git config user.name "ci-build"
       - run:
           name: Deploy Master to Github Pages
           command: ./node_modules/.bin/ng deploy --base-href=./
