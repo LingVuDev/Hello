@@ -1,0 +1,65 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2.1
+jobs:
+  test:
+    working_directory: ~/hello
+    docker:
+      - image: circleci/node:12.11.1
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+      - run:
+          name: Install dependencies
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Install Headless Chrome dependencies
+          command: |
+            sudo apt-get update && \
+            sudo apt-get install -yq \
+            gconf-service libasound2 libatk1.0-0 libatk-bridge2.0-0 libc6 libcairo2 libcups2 libdbus-1-3 \
+            libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 \
+            libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 \
+            libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates \
+            fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
+      - run:
+          name: Test
+          command: ./node_modules/.bin/ng test --code-coverage --watch=false
+
+  deploy:
+       docker:
+         - image: circleci/node:12.11.1
+       working_directory: ~/repo
+       steps:
+         - restore_cache:
+             key: dependency-cache-{{ checksum "package-lock.json" }}
+         - run:
+             name: Install dependencies
+             command: npm install
+         - run:
+             name: Install angular-cli-ghpages
+             command: ./node_modules/.bin/ng add angular-cli-ghpages
+         - run:
+             name: Deploy Master to Firebase
+             command: ./node_modules/.bin/ng deploy --base-href=./
+
+workflows:
+  version: 2
+
+  -test:
+    jobs:
+      - test
+
+  -deploy:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only: master
