@@ -57,13 +57,6 @@ jobs:
 workflows:
   version: 2
 
-  test:
-    jobs:
-      - test:
-        filters:
-          branches:
-            ignore: master
-
   test-and-deploy:
     jobs:
       - test
