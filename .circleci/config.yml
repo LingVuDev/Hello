@@ -4,7 +4,7 @@
 #
 version: 2.1
 jobs:
-  test-job:
+  test:
     working_directory: ~/hello
     docker:
       - image: circleci/node:12.11.1
@@ -13,7 +13,7 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
-          name: install-dependencies
+          name: Install dependencies
           command: npm install
       - save_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
@@ -33,22 +33,18 @@ jobs:
           name: Test
           command: ./node_modules/.bin/ng test --code-coverage --watch=false
 
-  deploy-job:
+  deploy:
        docker:
          - image: circleci/node:12.11.1
        working_directory: ~/repo
        steps:
          - restore_cache:
-             keys:
-              - v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+             key: dependency-cache-{{ checksum "package-lock.json" }}
          - run:
-             name: show directory
-             command: pwd
-         - run:
-             name: Install node_modules
+             name: Install dependencies
              command: npm install
          - run:
-             name: Install node_modules
+             name: Install angular-cli-ghpages
              command: ./node_modules/.bin/ng add angular-cli-ghpages
          - run:
              name: Deploy Master to Firebase
@@ -59,11 +55,11 @@ workflows:
 
   -test:
     jobs:
-      - test-job
+      - test
 
   -deploy:
     jobs:
-      - deploy-job:
+      - deploy:
           filters:
             branches:
               only: master
