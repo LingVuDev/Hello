@@ -55,7 +55,7 @@ jobs:
             git config user.name "ci-build"
       - run:
           name: Deploy Master to Github Pages
-          command: ./node_modules/.bin/ng deploy --base-href=./
+          command: ./node_modules/.bin/ng deploy --no-silent --base-href=./
 
 workflows:
   version: 2
@@ -66,6 +66,6 @@ workflows:
       - deploy:
           requires:
             - test
-          filters:
-            branches:
-              only: master
+          # filters:
+          #   # branches:
+          #   #   only: master
