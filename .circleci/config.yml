@@ -41,7 +41,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "MD5:01:86:12:ac:1b:63:fa:17:15:6a:e8:e8:c4:83:e8:95"
+            - "68:b5:6e:d7:62:89:e7:e1:98:fd:a7:fd:5e:da:4f:0b"
       - restore_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
