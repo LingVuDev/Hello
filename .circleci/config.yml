@@ -54,8 +54,8 @@ jobs:
             git config user.email "vumanhling@icloud"
             git config user.name "ci-build"
       - run:
-          name: Deploy Master to Github Pages
-          command: ./node_modules/.bin/ng deploy --no-silent --base-href=./
+          name: Deploy to Github Pages
+          command: ./node_modules/.bin/ng deploy --base-href=./
 
 workflows:
   version: 2
