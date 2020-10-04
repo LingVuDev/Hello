@@ -45,22 +45,31 @@ jobs:
              name: Install dependencies
              command: npm install
          - run:
-             name: Install angular-cli-ghpages
-             command: ./node_modules/.bin/ng add angular-cli-ghpages
+             name: Install angular-cli-ghpages and configure dependencies
+             command: |
+              ./node_modules/.bin/ng add angular-cli-ghpages
+              git config user.email "vumanhling@icloud"
+              git config user.name "ci-build"
          - run:
-             name: Deploy Master to Firebase
+             name: Deploy Master to Github Pages
              command: ./node_modules/.bin/ng deploy --base-href=./
 
 workflows:
   version: 2
 
-  -test:
+  test:
+    jobs:
+      - test:
+        filters:
+          branches:
+            ignore: master
+
+  test-and-deploy:
     jobs:
       - test
-
-  -deploy:
-    jobs:
       - deploy:
+          requires:
+            - test
           filters:
             branches:
               only: master
