@@ -9,16 +9,19 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatRippleModule } from '@angular/material/core';
 import { AboutComponent } from './pages/about/about.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { StackCardComponent } from './components/stack-card/stack-card.component';
+import { ProjectsComponent } from './pages/projects/projects.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CoverComponent,
     AboutComponent,
-    StackCardComponent
+    StackCardComponent,
+    ProjectsComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,9 +31,10 @@ import { StackCardComponent } from './components/stack-card/stack-card.component
     MatCardModule,
     MatIconModule,
     MatButtonModule,
+    MatRippleModule,
     FontAwesomeModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

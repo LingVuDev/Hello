@@ -1,5 +1,5 @@
 .stack-card {
-  .header {
+    cursor: pointer;
     display: flex;
     align-items: center;
 
@@ -8,14 +8,8 @@
       font-size: 40px;
       margin-right: 4px;
     }
+}
 
-    &__text {
-      margin: 0;
-    }
-  }
-
-  .actions {
-    display: flex;
-    justify-content: flex-end;
-  }
+.mat-card .last-child {
+  margin-bottom: 0;
 }
