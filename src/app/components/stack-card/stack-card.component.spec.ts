@@ -1,22 +1,20 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
+import { createSpyFromClass } from 'jasmine-auto-spies';
 import { StackCardComponent } from './stack-card.component';
 
-describe('StackCardComponent', () => {
+describe('ProjectsComponent', () => {
   let component: StackCardComponent;
-  let fixture: ComponentFixture<StackCardComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ StackCardComponent ]
-    })
-    .compileComponents();
-  }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StackCardComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    TestBed.configureTestingModule({
+      providers: [
+        StackCardComponent,
+        { provide: Router, useValue: createSpyFromClass(Router) },
+      ],
+    });
+
+    component = TestBed.inject(StackCardComponent);
   });
 
   it('should create', () => {
