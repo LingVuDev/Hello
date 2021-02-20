@@ -1,6 +1,6 @@
 # Hello
 
-This project contains my portfolio page. So feel free to get inpired. 
+This project contains my portfolio page. So feel free to get inpired.
 
 ## Development server
 

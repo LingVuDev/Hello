@@ -1,22 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
+import { createSpyFromClass } from 'jasmine-auto-spies';
 
 import { CoverComponent } from './cover.component';
 
-describe('CoverComponent', () => {
+describe('ProjectsComponent', () => {
   let component: CoverComponent;
-  let fixture: ComponentFixture<CoverComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ CoverComponent ]
-    })
-    .compileComponents();
-  }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CoverComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    TestBed.configureTestingModule({
+      providers: [CoverComponent, { provide: Router, useValue: createSpyFromClass(Router) }],
+    });
+
+    component = TestBed.inject(CoverComponent);
   });
 
   it('should create', () => {

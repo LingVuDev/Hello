@@ -1,21 +1,15 @@
 .stack-card {
-  .header {
-    display: flex;
-    align-items: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 
-    &__icon {
-      width: auto;
-      font-size: 40px;
-      margin-right: 4px;
-    }
-
-    &__text {
-      margin: 0;
-    }
+  &__icon {
+    width: auto;
+    font-size: 40px;
+    margin-right: 4px;
   }
+}
 
-  .actions {
-    display: flex;
-    justify-content: flex-end;
-  }
+.mat-card .last-child {
+  margin-bottom: 0;
 }

@@ -1,16 +1,16 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AboutComponent } from './about.component';
+import { ProjectsComponent } from './projects.component';
 
 describe('ProjectsComponent', () => {
-  let component: AboutComponent;
+  let component: ProjectsComponent;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AboutComponent],
+      providers: [ProjectsComponent],
     });
 
-    component = TestBed.inject(AboutComponent);
+    component = TestBed.inject(ProjectsComponent);
   });
 
   it('should create', () => {

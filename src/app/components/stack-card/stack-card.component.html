@@ -1,12 +1,4 @@
-<mat-card class="stack-card">
-  <div class="header">
-    <fa-icon class="header__icon" mat-card-avatar [icon]="icon"></fa-icon>
-    <span class="mat-title header__text">{{ brand | titlecase }}</span>
-  </div>
-  <mat-card-actions class="actions">
-    <button mat-button>
-      Projects
-      <mat-icon>keyboard_arrow_right</mat-icon>
-    </button>
-  </mat-card-actions>
+<mat-card class="stack-card" matRipple (click)="redirect()">
+  <fa-icon class="stack-card__icon" mat-card-avatar [icon]="icon"></fa-icon>
+  <span class="mat-title stack-card__text last-child">{{ brand | titlecase }}</span>
 </mat-card>

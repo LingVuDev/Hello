@@ -1,11 +1,3 @@
 .about {
-  &__introduction {
-    margin-bottom: 32px;
-  }
-
-  &__tech-stack {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
+  margin: 16px;
 }

@@ -1,0 +1,22 @@
+<div class="projects">
+  <h1>Projects</h1>
+  <div class="projects__filter">
+    <mat-form-field appearance="outline">
+      <mat-label>Filter</mat-label>
+      <mat-select [(value)]="selectedFilter" multiple (selectionChange)="update()">
+        <mat-option *ngFor="let filter of availableFilter" [value]="filter">{{ filter | titlecase }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Sort</mat-label>
+      <mat-select [(value)]="selectedSort" (selectionChange)="update()">
+        <mat-option>None</mat-option>
+        <mat-option value="asc">Ascending</mat-option>
+        <mat-option value="desc">Descending</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="project-card" *ngFor="let project of projects">
+    <app-project-card [project]="project"></app-project-card>
+  </div>
+</div>

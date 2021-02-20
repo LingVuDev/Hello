@@ -2,52 +2,96 @@
 
 .cover {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   height: 100%;
 
-  &__first-box {
-    width: 50%;
-    height: 100%;
-    color: white;
-    background-color: mat-color($primary);
-    position: relative;
+  color: white;
+  background-color: mat-color($primary);
+  position: relative;
 
-    .profile-picture {
-      border-radius: 50%;
-      width: 200px;
-      height: 200px;
-      background: white;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+  .profile-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    div ~ div {
+      margin-top: 16px;
     }
 
-    .title {
-      position: absolute;
-      bottom: 32px;
-      left: 32px;
-      display: flex;
-      flex-direction: column;
+    .mat-tab-link {
       color: white;
-      font-size: 32px;
+    }
 
-      .name {
-        font-weight: 700;
-      }
-
-      .description {
-        font-size: 16px;
+    .about {
+      &__contact {
+        * ~ * {
+          margin-left: 8px;
+        }
       }
     }
   }
 
-  &__sec-box {
-    width: 50%;
+  .title {
+    position: absolute;
+    bottom: 32px;
+    left: 32px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 32px;
 
-    .tab {
-      margin: 32px;
+    .name {
+      font-weight: 700;
+    }
+
+    .tech-stack {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+  }
+}
+
+// Tablet
+@media only screen and (max-width: 1024px) {
+  .cover {
+    height: 100%;
+    overflow: scroll;
+
+    .profile-info {
+      position: relative;
+      width: 100%;
+      flex: 1;
+      top: unset;
+      left: unset;
+      transform: unset;
+    }
+
+    .title {
+      position: relative;
+      margin: 16px;
+      bottom: unset;
+      left: unset;
+    }
+  }
+}
+
+// Mobile
+@media only screen and (max-width: 540px) {
+  .cover {
+    .title {
+      .tech-stack {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
     }
   }
 }
