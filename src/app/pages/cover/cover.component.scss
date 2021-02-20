@@ -22,13 +22,6 @@
     div ~ div {
       margin-top: 16px;
     }
-
-    &__tech-stack {
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-    }
   }
 
   .title {
@@ -44,8 +37,11 @@
       font-weight: 700;
     }
 
-    .description {
-      font-size: 16px;
+    .tech-stack {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
     }
   }
 }

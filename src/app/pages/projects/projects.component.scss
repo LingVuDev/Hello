@@ -1,0 +1,17 @@
+.projects {
+  margin: 16px;
+
+  &__filter {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    .mat-form-field {
+      flex: 1;
+    }
+
+    .mat-form-field ~ .mat-form-field {
+      margin-left: 16px;
+    }
+  }
+}

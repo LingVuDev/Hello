@@ -1,1 +1,20 @@
-<p>projects works!</p>
+<div class="projects">
+  <h1>Projects</h1>
+  <div class="projects__filter">
+    <mat-form-field appearance="outline">
+      <mat-label>Filter</mat-label>
+      <mat-select [(value)]="selectedFilter" multiple>
+        <mat-option *ngFor="let filter of availableFilter" value="filter">{{ filter | titlecase }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Sort</mat-label>
+      <mat-select [(value)]="selectedSort">
+        <mat-option>None</mat-option>
+        <mat-option value="option1">Ascending</mat-option>
+        <mat-option value="option2">Descending</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <app-project-card *ngFor="let project of projects" [project]="project"></app-project-card>  
+</div>
