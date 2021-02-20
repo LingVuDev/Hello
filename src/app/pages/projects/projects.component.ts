@@ -12,7 +12,7 @@ export class ProjectsComponent implements OnInit {
 
   projects: Project[];
 
-  selectedFilter;
+  selectedFilter: string[];
   selectedSort;
 
   constructor() {}
@@ -25,6 +25,12 @@ export class ProjectsComponent implements OnInit {
         return [...tags, ...project.tags];
       }, []),
       true
+    );
+  }
+
+  update() {
+    this.projects = [...projects].filter((project) =>
+      this.selectedFilter.some((filter) => project.tags.includes(filter)) || this.selectedFilter.length === 0 
     );
   }
 }

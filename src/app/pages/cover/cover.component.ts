@@ -25,6 +25,13 @@ export class CoverComponent implements OnInit {
     },
   ];
 
+  contactLinks = {
+    linkedin: 'https://www.linkedin.com/in/lingvu/',
+    stackoverflow: 'https://stackoverflow.com/users/10114038/ling-vu?tab=profile',
+    github: 'https://github.com/LingVuDev',
+    email: 'mailto:vumanhling@icloud.com',
+  }
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {
@@ -35,5 +42,9 @@ export class CoverComponent implements OnInit {
 
   navigate(link: Link) {
     this.router.navigateByUrl(link.url);
+  }
+
+  open(url: string) {
+    window.open(url,'_blank','noopener');
   }
 }

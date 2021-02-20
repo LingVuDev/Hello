@@ -3,16 +3,16 @@
   <div class="projects__filter">
     <mat-form-field appearance="outline">
       <mat-label>Filter</mat-label>
-      <mat-select [(value)]="selectedFilter" multiple>
-        <mat-option *ngFor="let filter of availableFilter" value="filter">{{ filter | titlecase }}</mat-option>
+      <mat-select [(value)]="selectedFilter" multiple (selectionChange)="update()">
+        <mat-option *ngFor="let filter of availableFilter" [value]="filter">{{ filter | titlecase }}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Sort</mat-label>
-      <mat-select [(value)]="selectedSort">
+      <mat-select [(value)]="selectedSort" (selectionChange)="update()">
         <mat-option>None</mat-option>
-        <mat-option value="option1">Ascending</mat-option>
-        <mat-option value="option2">Descending</mat-option>
+        <mat-option value="asc">Ascending</mat-option>
+        <mat-option value="desc">Descending</mat-option>
       </mat-select>
     </mat-form-field>
   </div>

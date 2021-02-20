@@ -2,11 +2,11 @@
   <h3>{{ project?.title || 'No Title' }}</h3>
   <span>{{ project?.description }}</span>
   <div class="project-card__actions">
-    <button mat-stroked-button>
+    <button mat-stroked-button (click)="open(project.repo)">
       {{ 'Source Code' | uppercase }}
       <mat-icon>code</mat-icon>
     </button>
-    <button mat-stroked-button>
+    <button mat-stroked-button (click)="open(project.demo)">
       {{ 'Open' | uppercase }}
       <mat-icon>open_in_new</mat-icon>
     </button>

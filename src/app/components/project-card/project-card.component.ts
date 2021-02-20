@@ -11,4 +11,8 @@ export class ProjectCardComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  open(url: string) {
+    window.open(url,'_blank','noopener');
+  }
 }

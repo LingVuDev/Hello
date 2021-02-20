@@ -20,10 +20,10 @@
       </div>
       <div class="about__contact">
         <span>Get in touch with me:</span>
-        <button mat-flat-button color="accent">LinkedIn</button>
-        <button mat-flat-button color="accent">StackOverflow</button>
-        <button mat-flat-button color="accent">Github</button>
-        <button mat-flat-button color="accent">E-Mail</button>
+        <button mat-flat-button color="accent" (click)="open(contactLinks.linkedin)">LinkedIn</button>
+        <button mat-flat-button color="accent" (click)="open(contactLinks.stackoverflow)">StackOverflow</button>
+        <button mat-flat-button color="accent" (click)="open(contactLinks.github)">Github</button>
+        <button mat-flat-button color="accent" (click)="open(contactLinks.email)">E-Mail</button>
       </div>
     </div>
   </div>
