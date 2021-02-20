@@ -6,16 +6,40 @@
 
   &__first_box {
     flex: 1;
-    transition: width 0.2s ease;
   }
 
-  &__sec-box {
+  &__sec_box {
     width: 50%;
     margin: 16px;
+    box-sizing: border-box;
+    background-color: white;
 
     .close {
       margin-top: 8px;
       margin-left: 8px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .app {
+    flex-direction: column;
+
+    &__first_box {
+      overflow: hidden;
+    }
+
+    &__sec_box {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      margin: unset;
+  
+      .close {
+        margin-top: 8px;
+        margin-left: 8px;
+      }
     }
   }
 }

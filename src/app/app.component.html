@@ -2,7 +2,7 @@
   <div class="app__first_box">
     <app-cover></app-cover>
   </div>
-  <div class="app__sec-box" *ngIf="!isRootUrl" [@inOutAnimation]>
+  <div class="app__sec_box" *ngIf="!isRootUrl" [@inOutAnimation]>
     <button class="close" mat-icon-button (click)="close()"><mat-icon>close</mat-icon></button>
     <router-outlet></router-outlet>
   </div>

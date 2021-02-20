@@ -27,7 +27,6 @@ export class StackCardComponent implements OnChanges {
   }
 
   redirect(): void {
-    console.log('clicked')
     if (this.url) {
       this.router.navigateByUrl(this.url);
     }

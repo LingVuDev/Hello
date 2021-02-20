@@ -1,5 +1,4 @@
 <div class="cover">
-  <div class="cover__first-box">
     <div class="profile-info">
       <div class="profile-info__image">
         <img
@@ -8,15 +7,32 @@
       </div>
       <div class="about">
         <span class="mat-display-3">Hello there 👋</span>
+        <p>
+          I'm a Front-End Web Dev, currently working for Retresco in Berlin,
+          Germany. <br />
+          I have serious passion for cutting edge tech and creating complex,
+          fully tested code.
+        </p>
         <div>
-          <span>
-            I'm a Front-End Web Dev, currently working for Retresco in Berlin, Germany. <br />
-            I have serious passion for cutting edge tech and creating complex,
-            fully tested code.
-          </span>
+          <nav mat-tab-nav-bar color="accent">
+            <a
+              mat-tab-link
+              *ngFor="let link of links"
+              (click)="navigate(link)"
+              [active]="currentUrl === link.url"
+            >
+              {{ link.title }}
+            </a>
+          </nav>
+        </div>
+        <div class="about__contact">
+          <span>Get in touch with me:</span>
+          <button mat-flat-button color="accent">LinkedIn</button>
+          <button mat-flat-button color="accent">StackOverflow</button>
+          <button mat-flat-button color="accent">Github</button>
+          <button mat-flat-button color="accent">E-Mail</button>
         </div>
       </div>
-      
     </div>
     <div class="title">
       <span class="name">Ling Vu</span>
@@ -30,5 +46,4 @@
         <app-stack-card [brand]="'sass'"></app-stack-card>
       </div>
     </div>
-  </div>
 </div>

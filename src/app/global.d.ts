@@ -6,3 +6,7 @@ interface Project {
   tags: string[];
 }
 
+interface Link {
+  title: string;
+  url: string;
+}

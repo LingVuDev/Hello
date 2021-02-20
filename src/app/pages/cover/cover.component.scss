@@ -2,7 +2,7 @@
 
 .cover {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   height: 100%;
 
@@ -21,6 +21,18 @@
 
     div ~ div {
       margin-top: 16px;
+    }
+
+    .mat-tab-link {
+      color: white;
+    }
+
+    .about {
+      &__contact {
+        * ~ * {
+         margin-left: 8px; 
+        }
+      }
     }
   }
 
@@ -42,6 +54,45 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 8px;
+    }
+  }
+}
+
+// Tablet
+@media only screen and (max-width: 1024px) {
+  .cover {
+    height: 100%;
+    overflow: scroll;
+
+    .profile-info {
+      position: relative;
+      width: 100%;
+      flex: 1;
+      top: unset;
+      left: unset;
+      transform: unset;
+    }
+
+    .title {
+      position: relative;
+      margin: 16px;
+      bottom: unset;
+      left: unset;
+    }
+  }
+}
+
+// Mobile
+@media only screen and (max-width: 540px) {
+  .cover {
+
+    .title {
+      .tech-stack {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
     }
   }
 }
