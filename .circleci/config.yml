@@ -54,6 +54,9 @@ jobs:
             git config user.email "vumanhling@icloud"
             git config user.name "ci-build"
       - run:
+          name: Copy .circle-ci config
+          command: cp -r ./circleci ./dist
+      - run:
           name: Deploy to Github Pages
           command: ./node_modules/.bin/ng deploy --base-href=./
 
