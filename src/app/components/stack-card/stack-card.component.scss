@@ -1,13 +1,13 @@
 .stack-card {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 
-    &__icon {
-      width: auto;
-      font-size: 40px;
-      margin-right: 4px;
-    }
+  &__icon {
+    width: auto;
+    font-size: 40px;
+    margin-right: 4px;
+  }
 }
 
 .mat-card .last-child {

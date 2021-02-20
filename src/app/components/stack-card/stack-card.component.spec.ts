@@ -8,10 +8,7 @@ describe('ProjectsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        StackCardComponent,
-        { provide: Router, useValue: createSpyFromClass(Router) },
-      ],
+      providers: [StackCardComponent, { provide: Router, useValue: createSpyFromClass(Router) }],
     });
 
     component = TestBed.inject(StackCardComponent);

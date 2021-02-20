@@ -5,5 +5,5 @@ export const projects: Project[] = [
     repo: 'https://github.com/LingVuDev/Hello',
     demo: 'https://lingvu.dev',
     tags: ['angular', 'javascript', 'sass', 'circleci', 'material'],
-  }
+  },
 ];

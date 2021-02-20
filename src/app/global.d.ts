@@ -1,4 +1,4 @@
-interface Project {
+interface Project {
   title: string;
   description: string;
   repo: string;

@@ -3,11 +3,11 @@ import { ProjectCardComponent } from './project-card.component';
 
 describe('ProjectsComponent', () => {
   let component: ProjectCardComponent;
- 
+
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ ProjectCardComponent ]
-    })
+      providers: [ProjectCardComponent],
+    });
 
     component = TestBed.inject(ProjectCardComponent);
   });

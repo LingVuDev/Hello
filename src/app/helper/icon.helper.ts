@@ -10,7 +10,7 @@ export function getIconByName(name: string): string[] {
       return ['fab', 'react'];
     case 'sass':
       return ['fab', 'sass'];
-    case 'gitlab': 
+    case 'gitlab':
       return ['fab', 'gitlab'];
     default:
       return ['fas', 'question'];

@@ -8,44 +8,28 @@ import { filter } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [
-    trigger(
-      'inOutAnimation', 
-      [
-        transition(
-          ':enter', 
-          [
-            style({ width: 0, opacity: 0 }),
-            animate('1s ease-out', 
-                    style({ width: '*', opacity: 1 }))
-          ]
-        ),
-        transition(
-          ':leave', 
-          [
-            style({ width: '*', opacity: 1 }),
-            animate('1s ease-in', 
-                    style({ width: 0, opacity: 0 }))
-          ]
-        )
-      ]
-    )
-  ]
+    trigger('inOutAnimation', [
+      transition(':enter', [
+        style({ width: 0, opacity: 0 }),
+        animate('1s ease-out', style({ width: '*', opacity: 1 })),
+      ]),
+      transition(':leave', [style({ width: '*', opacity: 1 }), animate('1s ease-in', style({ width: 0, opacity: 0 }))]),
+    ]),
+  ],
 })
 export class AppComponent implements OnInit {
   links = ['First', 'Second', 'Third'];
-  
+
   activeLink = this.links[0];
-  
+
   isRootUrl = true;
 
   constructor(private router: Router) {}
 
   ngOnInit() {
-    this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe((event: NavigationEnd) => {
-        this.isRootUrl = event.url === '/';
-      });
+    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe((event: NavigationEnd) => {
+      this.isRootUrl = event.url === '/';
+    });
   }
 
   close() {

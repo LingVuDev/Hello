@@ -8,10 +8,7 @@ describe('AppComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        AppComponent,
-        { provide: Router, useValue: createSpyFromClass(Router)}
-      ],
+      providers: [AppComponent, { provide: Router, useValue: createSpyFromClass(Router) }],
     });
 
     app = TestBed.inject(AppComponent);

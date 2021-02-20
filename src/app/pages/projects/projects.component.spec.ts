@@ -4,11 +4,11 @@ import { ProjectsComponent } from './projects.component';
 
 describe('ProjectsComponent', () => {
   let component: ProjectsComponent;
- 
+
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ ProjectsComponent ]
-    })
+      providers: [ProjectsComponent],
+    });
 
     component = TestBed.inject(ProjectsComponent);
   });

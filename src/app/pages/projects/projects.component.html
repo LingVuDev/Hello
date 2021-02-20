@@ -4,9 +4,7 @@
     <mat-form-field appearance="outline">
       <mat-label>Filter</mat-label>
       <mat-select [(value)]="selectedFilter" multiple>
-        <mat-option *ngFor="let filter of availableFilter" value="filter">{{
-          filter | titlecase
-        }}</mat-option>
+        <mat-option *ngFor="let filter of availableFilter" value="filter">{{ filter | titlecase }}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">

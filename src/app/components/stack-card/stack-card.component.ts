@@ -8,7 +8,7 @@ import { getIconByName } from '../../helper/icon.helper';
 @Component({
   selector: 'app-stack-card',
   templateUrl: './stack-card.component.html',
-  styleUrls: ['./stack-card.component.scss']
+  styleUrls: ['./stack-card.component.scss'],
 })
 export class StackCardComponent implements OnChanges {
   @Input() brand: string;

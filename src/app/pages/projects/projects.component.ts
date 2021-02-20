@@ -5,10 +5,9 @@ import * as _ from 'lodash';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss']
+  styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent implements OnInit {
-
   availableFilter: string[];
 
   projects: Project[];
@@ -16,14 +15,16 @@ export class ProjectsComponent implements OnInit {
   selectedFilter;
   selectedSort;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.projects = [...projects];
 
-    this.availableFilter = _.uniq(this.projects.reduce<string[]>((tags, project) => {
-      return [...tags, ...project.tags];
-    }, []), true);
+    this.availableFilter = _.uniq(
+      this.projects.reduce<string[]>((tags, project) => {
+        return [...tags, ...project.tags];
+      }, []),
+      true
+    );
   }
-
 }

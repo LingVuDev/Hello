@@ -9,10 +9,7 @@ describe('ProjectsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        CoverComponent,
-        { provide: Router, useValue: createSpyFromClass(Router) },
-      ],
+      providers: [CoverComponent, { provide: Router, useValue: createSpyFromClass(Router) }],
     });
 
     component = TestBed.inject(CoverComponent);
