@@ -1,4 +1,9 @@
 <div class="cover">
+  <nav mat-tab-nav-bar color="primary" backgroundColor="primary">
+    <a mat-tab-link *ngFor="let link of links" (click)="navigate(link)" [active]="currentUrl === link.url">
+      {{ link.title }}
+    </a>
+  </nav>
   <div class="profile-info">
     <div class="profile-info__image">
       <img
@@ -8,35 +13,29 @@
     <div class="about">
       <span class="mat-display-3">Hello there 👋</span>
       <p>
-        I'm a Front-End Web Dev, currently working for Retresco in Berlin, Germany. <br />
-        I have serious passion for cutting edge tech and creating complex, fully tested code.
+        My name is Ling Vu and I'm a Front-End Web Dev, currently working for Retresco in Berlin, Germany. <br />
+        I am passioned about cutting edge tech and complex challenges.
       </p>
       <div>
-        <nav mat-tab-nav-bar color="accent">
-          <a mat-tab-link *ngFor="let link of links" (click)="navigate(link)" [active]="currentUrl === link.url">
-            {{ link.title }}
-          </a>
-        </nav>
       </div>
       <div class="about__contact">
-        <span>Get in touch with me:</span>
         <button mat-flat-button color="accent" (click)="open(contactLinks.linkedin)">LinkedIn</button>
         <button mat-flat-button color="accent" (click)="open(contactLinks.stackoverflow)">StackOverflow</button>
         <button mat-flat-button color="accent" (click)="open(contactLinks.github)">Github</button>
         <button mat-flat-button color="accent" (click)="open(contactLinks.email)">E-Mail</button>
+      </div>
+      <div class="about__tech-stack">
+        <app-stack-card [brand]="'angular'"></app-stack-card>
+        <app-stack-card [brand]="'react'"></app-stack-card>
+        <app-stack-card [brand]="'javascript'"></app-stack-card>
+        <app-stack-card [brand]="'gitlab'"></app-stack-card>
+        <app-stack-card [brand]="'node'"></app-stack-card>
+        <app-stack-card [brand]="'sass'"></app-stack-card>
       </div>
     </div>
   </div>
   <div class="title">
     <span class="name">Ling Vu</span>
     <span class="sub">— Frontend Engineer</span>
-    <div class="tech-stack">
-      <app-stack-card [brand]="'angular'"></app-stack-card>
-      <app-stack-card [brand]="'react'"></app-stack-card>
-      <app-stack-card [brand]="'javascript'"></app-stack-card>
-      <app-stack-card [brand]="'gitlab'"></app-stack-card>
-      <app-stack-card [brand]="'node'"></app-stack-card>
-      <app-stack-card [brand]="'sass'"></app-stack-card>
-    </div>
   </div>
 </div>

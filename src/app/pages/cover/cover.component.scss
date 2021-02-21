@@ -18,6 +18,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 500px;
 
     div ~ div {
       margin-top: 16px;
@@ -29,9 +30,20 @@
 
     .about {
       &__contact {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
         * ~ * {
           margin-left: 8px;
         }
+      }
+
+      &__tech-stack {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
       }
     }
   }
@@ -48,13 +60,6 @@
     .name {
       font-weight: 700;
     }
-
-    .tech-stack {
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-    }
   }
 }
 
@@ -66,7 +71,6 @@
 
     .profile-info {
       position: relative;
-      width: 100%;
       flex: 1;
       top: unset;
       left: unset;
@@ -75,6 +79,7 @@
 
     .title {
       position: relative;
+      font-size: 16px;
       margin: 16px;
       bottom: unset;
       left: unset;
@@ -85,12 +90,17 @@
 // Mobile
 @media only screen and (max-width: 540px) {
   .cover {
-    .title {
-      .tech-stack {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
+    .profile-info {
+      margin: 8px;
+      width: calc(100% - 16px);
+
+      .about {
+        &__tech-stack {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 8px;
+        }
       }
     }
   }
